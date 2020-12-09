@@ -1,8 +1,9 @@
 package com.github.czyzby.noise4j.map;
 
-import java.util.Arrays;
 
 import com.github.czyzby.noise4j.array.Array2D;
+
+import java.util.Arrays;
 
 /** A float array wrapper. Allows to use a single 1D float array as a 2D array.
  *

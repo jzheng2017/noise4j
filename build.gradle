@@ -4,7 +4,7 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 sourceSets.main.java.srcDirs = [ "src/" ]
-sourceCompatibility = 1.6
+sourceCompatibility = 1.15
 
 ext {
     libVersion = '0.1.0'
@@ -46,10 +46,6 @@ artifacts {
     archives javadocJar, sourcesJar
 }
 
-signing {
-    sign configurations.archives
-}
-
 dependencies {
     deployerJars "org.apache.maven.wagon:wagon-ssh:2.2"
     deployerJars "org.apache.maven.wagon:wagon-http:2.2"
@@ -58,15 +54,15 @@ dependencies {
 uploadArchives {
   repositories {
     mavenDeployer {
-      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+//      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-        authentication(userName: ossrhUsername, password: ossrhPassword)
-      }
-
-      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-        authentication(userName: ossrhUsername, password: ossrhPassword)
-      }
+//      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+//        authentication(userName: ossrhUsername, password: ossrhPassword)
+//      }
+//
+//      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+//        authentication(userName: ossrhUsername, password: ossrhPassword)
+//      }
 
       pom.project {
         name 'Noise4j'

@@ -1,18 +1,11 @@
 package com.github.czyzby.noise4j.map.generator.room.dungeon;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import com.github.czyzby.noise4j.array.Int2dArray;
 import com.github.czyzby.noise4j.map.Grid;
 import com.github.czyzby.noise4j.map.generator.room.AbstractRoomGenerator;
 import com.github.czyzby.noise4j.map.generator.util.Generators;
+
+import java.util.*;
 
 /** Generates a set of rooms with a maze-like system of corridors connecting them. This particular implementation
  * requires the map and rooms to have odd sizes - if the passed map is not odd, last row and column might be filled with
@@ -609,6 +602,10 @@ public class DungeonGenerator extends AbstractRoomGenerator {
         public String toString() {
             return "[" + x + "," + y + "]";
         }
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
     }
 
     /** Contains all possible corridor carving directions.
